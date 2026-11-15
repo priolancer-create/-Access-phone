@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>W8Tracker Camera</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main class="shell">
+  <header>
+    <b>W8</b>
+    <div class="title"><h1 data-i="title"></h1><small data-i="subtitle"></small></div>
+    <button id="lang" class="chip" type="button">EN</button>
+  </header>
+
+  <section class="notice"><strong data-i="notice_h"></strong><p data-i="notice_p"></p></section>
+
+  <section class="camera">
+    <div class="frame">
+      <video id="video" autoplay playsinline muted hidden></video>
+      <canvas id="canvas" hidden></canvas>
+      <img id="preview" hidden alt="Photo preview">
+      <div id="placeholder">📷<br><span data-i="cam_off"></span></div>
+      <div id="count" class="count" hidden></div>
+      <div class="tools">
+        <button id="switch" class="chip" type="button" hidden>🔄</button>
+        <button id="torch" class="chip" type="button" hidden>🔦</button>
+        <button id="timer" class="chip" type="button" hidden>⏱ 0s</button>
+      </div>
+    </div>
+    <progress id="progress" max="100" value="0" hidden></progress>
+    <p id="status" role="status"></p>
+  </section>
+
+  <label class="consent"><input id="consent" type="checkbox"><span data-i="consent"></span></label>
+
+  <div class="buttons">
+    <button id="start" type="button" data-i="b_start"></button>
+    <button id="take" type="button" disabled data-i="b_take"></button>
+    <button id="retake" type="button" disabled data-i="b_retake"></button>
+    <button id="stop" type="button" disabled data-i="b_stop"></button>
+    <button id="submit" type="button" disabled class="wide" data-i="b_submit"></button>
+  </div>
+
+  <details>
+    <summary data-i="what_h"></summary>
+    <label class="consent inner"><input id="detail" type="checkbox" checked><span data-i="detail_toggle"></span></label>
+    <p data-i="what_p"></p>
+    <pre id="metaPreview" data-i="no_photo_yet"></pre>
+  </details>
+
+  <footer><span id="quota"></span><br><span data-i="footer"></span></footer>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
